@@ -1,13 +1,13 @@
 pipeline
 {
 agent {
-docker { image 'cristinaneacsudocker/dockerjenkins:test1' }
-}
+        docker { image 'cristinaneacsudocker/dockerjenkins:test1' }
+      }
 stages {
-stage('Test') {
-steps {
-sh 'echo "hello"'
-}
-}
-}
+  stage('Test') {
+     steps {
+             sh 'echo "hello"'
+           }
+                }              
+       }
 }

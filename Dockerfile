@@ -24,4 +24,6 @@ RUN id; \
 
 COPY Dockerfile /Dockerfile
 
+RUN usermod -aG docker jenkins
+
 USER jenkins
