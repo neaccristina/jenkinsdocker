@@ -1,4 +1,4 @@
-FROM jenkins:lts-slim
+FROM jenkins/jenkins:lts-slim
 
 ENV PACKAGES "sudo git tar apt-transport-https gnupg2 ca-certificates openssl bash curl wget bc awscli"
 
@@ -6,7 +6,10 @@ ENV DOCKER_VERSION 18.03.1~ce-0~debian
 
 WORKDIR /
 
-RUN set -e; \
+USER root
+
+RUN id; \
+    set -e; \
     apt-get update -y; \
     apt-get install -y ${PACKAGES}; \
     echo "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable" > /etc/apt/sources.list.d/docker.list; \
@@ -20,3 +23,5 @@ RUN set -e; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY Dockerfile /Dockerfile
+
+USER jenkins
