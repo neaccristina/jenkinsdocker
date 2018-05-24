@@ -15,8 +15,9 @@ stages {
            }
                 }  
   stage('Build docker image') {
+  agent any
      steps {
-            sh 'docker build -t cristinaneacsudocker/dockerjenkins:test2 .'
+            sh 'docker build -t cristinaneacsudocker/linux_tweet_app:1.0 .'
            }                         
                               }
        }
