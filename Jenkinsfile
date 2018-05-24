@@ -1,7 +1,7 @@
 pipeline
 {
 agent {
-        docker { image 'cristinaneacsudocker/dockerjenkins:test1' }
+        docker { image 'cornelf/docker-build:slim' }
       }
 stages {
   stage('Test') {
