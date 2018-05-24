@@ -1,13 +1,21 @@
 pipeline
 {
 agent {
-        docker { image 'cornelf/docker-build:slim' }
+        docker { 
+        // reuseNode so it doesn't checkout again
+        reuseNode true
+        image 'cornelf/docker-build:slim' 
+        args '-v /var/run/docker.sock:/var/run/docker.sock'
+               }
       }
 stages {
   stage('Test') {
      steps {
              sh 'echo "hello"'
            }
-                }              
+                }  
+  stage('Build docker image') {
+            sh 'docker build -t cristinaneacsudocker/dockerjenkins:test2 .'
+           }                         
        }
 }
