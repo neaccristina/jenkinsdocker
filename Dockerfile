@@ -22,10 +22,8 @@ RUN id; \
     chmod +x /usr/local/bin/docker-compose; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY Dockerfile /Dockerfile
 
 RUN usermod -aG docker jenkins
 
 USER jenkins
-
-RUN mkdir -p /dockertestf
-COPY Dockerfile /dockertestf/Dockerfile

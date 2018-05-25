@@ -5,7 +5,7 @@ agent {
         // reuseNode so it doesn't checkout again
         reuseNode true
         image 'cornelf/docker-build:slim' 
-        args '-v /var/run/docker.sock:/var/run/docker.sock'
+        args '-v /var/run/docker.sock:/var/run/docker.sock --group-add root'
                }
       }
 stages {
@@ -15,9 +15,8 @@ stages {
            }
                 }  
   stage('Build docker image') {
-  agent any
      steps {
-            sh 'docker build -t cristinaneacsudocker/linux_tweet_app:1.0 .'
+            sh 'docker build -t test .'
            }                         
                               }
        }
