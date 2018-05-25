@@ -1,4 +1,4 @@
-Jenkins pipeline, building a docker image and publishing it to DockerHub
+**Jenkins pipeline, building a docker image and publishing it to DockerHub**
 
 Image: @cristinaneacsudocker/dockerjenkins based on jenkins/jenkins:lts-slim and with Docker installed
 
