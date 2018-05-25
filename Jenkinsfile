@@ -21,7 +21,7 @@ stages {
                               }
   stage ('Push it') {
     steps {
-    withCredentials([usernamePassword(credentialsId: 'dockerHub', Cakesolutions1102:'dockerHubPassword', cristinaneacsudocker: 'dockerHubUser')]) {
+    withCredentials([usernamePassword(credentialsId: 'DockerHub', Cakesolutions1102:'dockerHubPassword', cristinaneacsudocker: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
           sh 'docker tag test cristinaneacsudocker/dockerjenkins2:testpush'
           sh 'docker push cristinaneacsudocker/dockerjenkins2:testpush'
